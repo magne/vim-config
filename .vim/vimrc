@@ -1,0 +1,34 @@
+set nocompatible                " be iMproved
+
+"  ---------------------------------------------------------------------------
+"  Plugins
+"  ---------------------------------------------------------------------------
+
+
+silent! runtime bundles.vim
+ 
+""" User interface {{{
+    """ Syntax highlighting {{{
+        filetype plugin indent on                   " detect file plugin+indent
+        syntax on                                   " syntax highlighting
+        set background=dark                         " we're using a dark bg
+        colorscheme jellybeans                      " colorscheme from plugin
+        """ .txt w/highlight, plaintex is useless, markdown for .md {{{
+            augroup FileTypeRules
+                autocmd!
+                autocmd BufNewFile,BufRead *.txt set ft=sh tw=79
+                autocmd BufNewFile,BufRead *.tex set ft=tex tw=79
+                autocmd BufNewFile,BufRead *.md set ft=markdown tw=79
+            augroup END
+        """ }}}
+        """ 256 colors for maximum jellybeans bling. {{{
+            if (&term =~ "xterm") || (&term =~ "screen")
+                set t_Co=256
+            endif
+        """ }}}
+    """ }}}
+""" }}}
+
+set tabstop=2
+set shiftwidth=2
+set expandtab
