@@ -29,6 +29,38 @@ silent! runtime bundles.vim
     """ }}}
 """ }}}
 
-set tabstop=2
-set shiftwidth=2
+" allow Vim to manage multiple buffers effectively
+set hidden
+
+" keep a longer history
+set history=1000
+
+" enable extended % matching
+runtime macros/matchit.vim
+
+" make file/command completion useful
+set wildmenu
+set wildmode=list:longest
+
+" use case-smart searching
+set ignorecase
+set smartcase
+
+" set the terminal title
+set title
+
+" maintain more context around the cursor
+set scrolloff=3
+
+" enable limited line numbering
+set ruler
+
+" catch trailing whitespace
+set listchars=tab:>-,trail:·,eol:$
+nmap <silent> <leader>s :set nolist!<CR>
+
+set autoindent
 set expandtab
+set shiftwidth=4
+set softtabstop=4
+set pastetoggle=<F2>
