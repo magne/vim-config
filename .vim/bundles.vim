@@ -25,6 +25,9 @@ set nocompatible
     " Glorious colorscheme
     Plugin 'nanotech/jellybeans.vim'
 
+    " Airline
+    Plugin 'bling/vim-airline'
+
     """ Finish Vundle init
     call vundle#end()
 
