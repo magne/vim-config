@@ -28,6 +28,12 @@ set nocompatible
     " Airline
     Plugin 'bling/vim-airline'
 
+    " Handle Ansible yml files
+    Plugin 'chase/vim-ansible-yaml'
+
+    " Syntax highlighting for Dockerfiles
+    Plugin 'docker/docker', {'rtp': '/contrib/syntax/vim/'}
+
     """ Finish Vundle init
     call vundle#end()
 
