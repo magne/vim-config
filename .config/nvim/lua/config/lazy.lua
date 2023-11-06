@@ -8,12 +8,17 @@ vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 
 require("lazy").setup({
   spec = {
+    { "folke/lazy.nvim", version = "nil" },
+    { "bluz71/vim-nightfly-colors", name = "nightfly" },
     -- add LazyVim and import its plugins
-    { "LazyVim/LazyVim", import = "lazyvim.plugins" },
+    {
+      "LazyVim/LazyVim",
+      import = "lazyvim.plugins",
+      opts = {
+        colorscheme = "nightfly",
+      },
+    },
     -- import any extras modules here
-    -- { import = "lazyvim.plugins.extras.lang.typescript" },
-    -- { import = "lazyvim.plugins.extras.lang.json" },
-    -- { import = "lazyvim.plugins.extras.ui.mini-animate" },
     -- import/override with your plugins
     { import = "plugins" },
   },
@@ -26,7 +31,14 @@ require("lazy").setup({
     version = false, -- always use the latest git commit
     -- version = "*", -- try installing the latest stable version for plugins that support semver
   },
-  install = { colorscheme = { "tokyonight", "habamax" } },
+  dev = {
+    path = vim.fn.stdpath("config") .. "/projects",
+  },
+  install = {
+    -- try to load one of these colorschemes when starting an installation during startup
+    -- colorscheme = { "tokyonight", "habamax" }
+    colorscheme = { "nightfly", "catppuccin", "tokyonight", "habamax" },
+  },
   checker = { enabled = true }, -- automatically check for plugin updates
   performance = {
     rtp = {
